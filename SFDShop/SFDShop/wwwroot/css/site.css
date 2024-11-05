@@ -1,0 +1,185 @@
+/* Baner */
+.banner {
+    background-color: transparent; /* Przezroczyste t³o dla banera */
+    background-size: cover;
+    background-position: center;
+    height: 350px; /* Powiêkszenie wysokoœci */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff; /* Bia³y kolor tekstu */
+    transition: transform 0.3s ease-in-out, height 0.3s ease-in-out; /* Dodanie animacji */
+}
+
+    /* Powiêkszenie banera przy najechaniu */
+    .banner:hover {
+        transform: scale(1.05); /* Powiêkszenie banera */
+        height: 370px; /* Dodatkowe powiêkszenie wysokoœci */
+    }
+
+    /* Style dla nag³ówka i tekstu w banerze */
+    .banner h1 {
+        font-size: 4rem; /* Zwiêkszenie wielkoœci czcionki */
+        margin-bottom: 0.5rem;
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Cieñ dla napisu */
+        transition: font-size 0.3s ease-in-out; /* Dodanie animacji dla wielkoœci tekstu */
+    }
+
+    .banner:hover h1 {
+        font-size: 4.5rem; /* Powiêkszenie czcionki przy najechaniu */
+    }
+
+    .banner p {
+        font-size: 1.5rem; /* Zwiêkszenie wielkoœci czcionki */
+        margin-top: 0;
+        transition: font-size 0.3s ease-in-out; /* Dodanie animacji dla tekstu */
+    }
+
+    .banner:hover p {
+        font-size: 1.7rem; /* Powiêkszenie tekstu przy najechaniu */
+    }
+
+/* Reszta stylów */
+.card {
+    background-color: #343a40; /* Ciemnoszare t³o */
+    border-radius: 15px;
+    transition: transform 0.3s ease-in-out;
+    text-decoration: none;
+    color: white;
+    padding: 80px 60px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    font-size: 1.5rem;
+    min-height: 300px;
+}
+
+    .card:hover {
+        transform: scale(1.05);
+        background-color: #2a2d30;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    .card i {
+        color: #007bff;
+        margin-bottom: 15px;
+        transition: color 0.3s ease;
+    }
+
+    .card:hover i {
+        color: #0056b3;
+    }
+
+    .card a {
+        color: white;
+        text-decoration: none;
+        transition: font-weight 0.3s, color 0.3s;
+    }
+
+        .card a:hover {
+            font-weight: bold;
+            color: #f8f9fa;
+        }
+
+/* Stopka */
+footer {
+    background-color: #333;
+    font-size: 0.9rem;
+    padding: 20px;
+    color: #ccc;
+    text-align: center;
+}
+
+    footer a {
+        color: #ffffff;
+        text-decoration: underline;
+        transition: color 0.3s, text-decoration-color 0.3s;
+    }
+
+        footer a:hover {
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+/* Style dla ikon */
+.card i {
+    color: white;
+}
+
+.card:hover i {
+    color: #f8f9fa;
+}
+
+/* Tabela */
+table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+tr:last-child td {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/* Paginacja */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+    .pagination a {
+        color: #007bff;
+        padding: 10px 15px;
+        text-decoration: none;
+        border: 1px solid #007bff;
+        border-radius: 5px;
+        margin: 0 5px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+        .pagination a.active {
+            color: white;
+            border: 1px solid #0056b3;
+        }
+
+        .pagination a:hover {
+            background-color: rgba(0, 123, 255, 0.1);
+            color: #0056b3;
+        }
+
+    .pagination .prev, .pagination .next {
+        font-weight: bold;
+    }
+h1 {
+    text-align: center; /* Wyœrodkowanie tekstu */
+    font-size: 3rem; /* Zwiêkszony rozmiar czcionki */
+    color: #343a40; /* Ciemny kolor */
+    font-weight: bold; /* Pogrubienie czcionki */
+    margin: 40px 0; /* Margines z góry i do³u */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3); /* Delikatny cieñ */
+    transition: color 0.3s ease, transform 0.3s ease; /* P³ynna zmiana koloru i efekt powiêkszenia */
+}
+
+    h1:hover {
+        color: #4a4a4a; /* Zmiana koloru na niebieski przy najechaniu */
+        transform: scale(1.05); /* Powiêkszenie na hover */
+    }

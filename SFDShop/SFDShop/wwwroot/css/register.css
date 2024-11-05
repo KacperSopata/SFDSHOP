@@ -1,0 +1,112 @@
+﻿* {
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(255, 255, 255, 0.1)); /* Tło z gradientem */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.1); /* Półprzezroczyste tło dla kontenera */
+    border-radius: 20px; /* Zaokrąglone rogi kontenera */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7); /* Głębszy cień kontenera */
+    padding: 3rem; /* Padding wewnętrzny */
+    width: 90%; /* Szerokość kontenera */
+    max-width: 400px; /* Maksymalna szerokość kontenera */
+    backdrop-filter: blur(15px); /* Silniejsze rozmycie tła za kontenerem */
+}
+
+h1 {
+    margin-bottom: 1.5rem; /* Odstęp pod nagłówkiem */
+    text-align: center; /* Wyśrodkowanie tytułu */
+    color: #eaeaea; /* Jasny kolor tytułu */
+}
+
+.display-4 {
+    font-size: 2.5rem; /* Rozmiar tytułu */
+    font-weight: bold; /* Pogrubienie tekstu */
+}
+
+.form-floating {
+    margin-bottom: 1.5rem; /* Odstęp między formularzami */
+}
+
+.form-control {
+    border: 1px solid #aaa; /* Jaśniejsze obramowanie formularzy */
+    border-radius: 5px; /* Zaokrąglone rogi formularzy */
+    padding: 1rem; /* Padding wewnętrzny formularzy */
+    font-size: 1rem; /* Ustawienie rozmiaru czcionki */
+    background-color: rgba(255, 255, 255, 0.2); /* Półprzezroczyste tło formularzy */
+    color: #fff; /* Biały tekst */
+    transition: border-color 0.3s; /* Animacja zmiany koloru obramowania */
+}
+
+    .form-control:focus {
+        border-color: #00cc66; /* Kolor obramowania po kliknięciu */
+        outline: none; /* Usunięcie domyślnego obramowania */
+    }
+
+.form-label {
+    color: #bbb; /* Jaśniejszy kolor etykiety */
+}
+
+.btn-black {
+    border-radius: 5px; /* Zaokrąglone rogi przycisków */
+    background-color: black; /* Zielony kolor przycisków */
+    color: white; /* Biały tekst */
+    border: none; /* Bez obramowania */
+    width: 100%; /* Szerokość przycisku na 100% kontenera */
+    font-size: 1.2rem; /* Powiększenie tekstu przycisku */
+    padding: 15px; /* Dodatkowe odstępy w przycisku */
+    transition: background-color 0.3s ease; /* Animacja zmiany koloru tła */
+}
+
+    .btn-black:hover {
+        background-color: #009955; /* Ciemniejszy odcień zieleni przy najechaniu */
+    }
+
+.text-center {
+    text-align: center; /* Wyśrodkowanie tekstu */
+}
+
+.text-danger {
+    color: #dc3545; /* Kolor błędu */
+}
+
+.text-white {
+    color: #fff; /* Kolor białego tekstu */
+}
+
+.form-check-input {
+    accent-color: #00cc66; /* Kolor przycisku checkboxa */
+}
+
+.mt-3 {
+    margin-top: 1.5rem; /* Odstęp górny */
+}
+
+.login-external-login-header {
+    color: #eaeaea; /* Kolor nagłówka logowania zewnętrznego */
+    font-size: 1.5rem; /* Rozmiar nagłówka */
+}
+
+.login-external-login-button {
+    background-color: #444; /* Kolor przycisku logowania zewnętrznego */
+    color: white; /* Biały tekst */
+    border: none; /* Bez obramowania */
+    padding: 10px 15px; /* Padding wewnętrzny */
+    margin: 0.5rem 0; /* Odstępy między przyciskami */
+    border-radius: 5px; /* Zaokrąglone rogi */
+    cursor: pointer; /* Kursor wskazujący */
+    transition: background-color 0.3s ease; /* Animacja zmiany koloru tła */
+}
+
+    .login-external-login-button:hover {
+        background-color: #666; /* Jaśniejszy kolor przycisku przy najechaniu */
+    }

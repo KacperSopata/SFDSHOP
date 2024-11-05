@@ -1,0 +1,76 @@
+﻿@model SFDShop.Application.ViewModel.WorkSchedule.ListWorkScheduleForList
+
+@{
+    ViewData["Title"] = "Work Schedule";
+}
+
+<h1>Work Schedule List</h1>
+
+<p>
+    <a asp-action="AddWorkSchedule" class="btn btn-success">Add New Work Schedule</a>
+</p>
+
+<form asp-action="Index" asp-controller="WorkSchedule" method="post" id="paginationForm">
+    <div class="table-responsive">
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="thead-light">
+                <tr>
+                    <th>Employee</th>
+                    <th>Work Date</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var schedule in Model.WorkSchedules)
+                {
+                    <tr>
+                        <td>@schedule.EmployeeFullName</td>
+                        <td>@schedule.WorkDate.ToString("dd.MM.yyyy")</td>
+                        <td>@schedule.StartTime.ToString(@"hh\:mm")</td>
+                        <td>@schedule.EndTime.ToString(@"hh\:mm")</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@schedule.Id" class="btn btn-primary btn-sm me-1" title="Edit Schedule">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@schedule.Id" class="btn btn-danger btn-sm" title="Delete Schedule">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <input type="hidden" name="pageNo" id="pageNo" value="@Model.CurrentlyPage" />
+    <input type="hidden" name="pageSize" value="@Model.PageSize" />
+
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            <li class="page-item @(Model.CurrentlyPage == 1 ? "disabled" : "")">
+                <a class="page-link" href="javascript:PagerClick(@(Model.CurrentlyPage - 1))" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            @for (int i = 1; i <= Math.Ceiling((double)Model.Count / Model.PageSize); i++)
+            {
+                <li class="page-item @(i == Model.CurrentlyPage ? "active" : "")">
+                    <a class="page-link" href="javascript:PagerClick(@i)">@i</a>
+                </li>
+            }
+            <li class="page-item @(Model.CurrentlyPage == Math.Ceiling((double)Model.Count / Model.PageSize) ? "disabled" : "")">
+                <a class="page-link" href="javascript:PagerClick(@(Model.CurrentlyPage + 1))" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</form>
+
+@section Scripts {
+    <script type="text/javascript">
+        function PagerClick(index) {
+            // Ustawienie wartości ukrytego pola pageNo i submitowanie formularza
+            document.getElementById("pageNo").value = index;
+            document.getElementById("paginationForm").submit();
+        }
+    </script>
+}

@@ -1,0 +1,53 @@
+﻿@model SFDShop.Application.ViewModel.WorkSchedule.NewWorkScheduleVm
+
+@{
+    ViewData["Title"] = "Add Work Schedule";
+}
+
+<h2>Add Work Schedule</h2>
+
+<form asp-action="AddWorkSchedule" method="post">
+    <div class="form-group">
+        <label asp-for="EmployeeId" class="control-label">Employee</label>
+        <select asp-for="EmployeeId" class="form-control" asp-items="Model.Employees">
+            <option value="">-- Select Employee --</option>
+        </select>
+        <span asp-validation-for="EmployeeId" class="text-danger"></span>
+    </div>
+
+    <div id="workDaysContainer">
+        @for (int i = 0; i < Model.WorkDays.Count; i++)
+        {
+            <div class="work-day">
+                <h4>Work Day @(i + 1)</h4>
+                <div class="form-group">
+                    <label asp-for="WorkDays[@i].WorkDate" class="control-label">Work Date</label>
+                    <input asp-for="WorkDays[@i].WorkDate" class="form-control" type="date" />
+                    <span asp-validation-for="WorkDays[@i].WorkDate" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="WorkDays[@i].StartTime" class="control-label">Start Time</label>
+                    <input asp-for="WorkDays[@i].StartTime" class="form-control" type="time" />
+                    <span asp-validation-for="WorkDays[@i].StartTime" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="WorkDays[@i].EndTime" class="control-label">End Time</label>
+                    <input asp-for="WorkDays[@i].EndTime" class="form-control" type="time" />
+                    <span asp-validation-for="WorkDays[@i].EndTime" class="text-danger"></span>
+                </div>
+            </div>
+        }
+    </div>
+
+    <button type="button" class="btn btn-secondary" onclick="addWorkDay()">Add Another Work Day</button>
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+<!-- Dodaj załadowanie skryptu -->
+<script src="~/js/site.js"></script>
+<script>
+    // Inicjalizacja workDayIndex
+    initializeWorkDayIndex(@Model.WorkDays.Count);
+</script>

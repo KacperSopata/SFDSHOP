@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>aspnet-SFDShop-aa6165c2-05c4-4396-993f-490f90020437</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="Views\Employee\AddEmployee.cshtml" />
+    <None Include="Views\Employee\EditEmployee.cshtml" />
+    <None Include="Views\Employee\EmployeeDetails.cshtml" />
+    <None Include="Views\Employee\Index.cshtml" />
+    <None Include="Views\WorkSchedule\AddWorkSchedule.cshtml" />
+    <None Include="Views\WorkSchedule\Edit.cshtml" />
+    <None Include="Views\WorkSchedule\Index.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="8.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.8" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SFDShop.Application\SFDShop.Application.csproj" />
+    <ProjectReference Include="..\SFDShop.Infrastructure\SFDShop.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

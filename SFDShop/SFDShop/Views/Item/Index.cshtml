@@ -1,0 +1,104 @@
+﻿@model SFDShop.Application.ViewModel.Item.ListItemForListVm
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Items</h1>
+
+<p>
+    <a asp-action="AddItem" class="btn btn-success">Create New Item</a>
+</p>
+
+<form asp-action="Index" asp-controller="Item" method="post" id="paginationForm">
+    <div class="Search-section d-flex form-group" style="margin-bottom: 10px;">
+        <label for="searchString" style="margin-right: 10px;">Search by Product Name:</label>
+        <input type="text" asp-for="SearchString" name="searchString" id="searchString" class="form-control form-control-sm" style="width: 200px;" />
+        <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+
+     <div class="Filter-section form-check" style="display: inline-block;">
+        <label class="form-check-label" for="isAvailable">
+            Filter by Availability:
+        </label>
+        <input class="form-check-input" type="checkbox" asp-for="IsAvailable" id="isAvailable">
+        <button type="submit" class="btn btn-primary">Apply Filter</button>
+    </div>
+
+    <table class="table">
+        <!-- Table Header -->
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price $</th>
+                <th>Count</th>
+                <th>Available</th>
+                <th>Type Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <!-- Table Body -->
+        <tbody>
+            @foreach (var item in Model.Items)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Id)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Price)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Count)</td>
+                    <td>@Html.CheckBoxFor(modelItem => item.IsAvailable, new { @disabled = "disabled" })</td>
+                    <td>@Html.DisplayFor(modelItem => item.Type.Name)</td>
+                    <td>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                        }
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-dark">Details</a>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <!-- Pagination -->
+    <div class="row">
+        <div class="col-md-12">
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    @for (int i = 1; i <= Math.Ceiling(Model.Count / (double)Model.PageSize); i++)
+                    {
+                        <li class="page-item">
+                            @if (i != Model.CurrentlyPage)
+                            {
+                                <a href="javascript:PagerClick(@i)" class="page-link">@i</a>
+                            }
+                            else
+                            {
+                                <span class="page-link">@i</span>
+                            }
+                        </li>
+                    }
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Hidden Fields for Pagination -->
+    <input type="hidden" name="pageNo" id="pageNo" />
+    <input type="hidden" name="pageSize" id="pageSize" value="5" />
+</form>
+
+@section Scripts
+    {
+    <script type="text/javascript">
+        function PagerClick(index) {
+            document.getElementById("pageNo").value = index;
+            document.getElementById("paginationForm").submit();
+        }
+    </script>
+}

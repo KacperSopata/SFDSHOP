@@ -1,0 +1,20 @@
+﻿@model SFDShop.Application.ViewModel.EmployeeTask.NewEmployeeTaskVm
+
+<h2>Delete Task</h2>
+
+<div>
+    <h4>Are you sure you want to delete this task?</h4>
+    <div>
+        <strong>Task Name:</strong> @Model.TaskName
+    </div>
+    <div>
+        <strong>Task Date:</strong> @Model.TaskDate.ToString("dd.MM.yyyy")
+    </div>
+
+    <form asp-action="DeleteTask" method="post">
+        @Html.AntiForgeryToken() <!-- Dodaje token zabezpieczający przed CSRF -->
+        <input type="hidden" asp-for="Id" />
+        <button type="submit" class="btn btn-danger">Delete</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>

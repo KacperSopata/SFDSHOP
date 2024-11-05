@@ -1,0 +1,46 @@
+﻿@model SFDShop.Application.ViewModel.AdminPanel.Users.ListUserVm
+
+@{
+    ViewData["Title"] = "Admins";
+}
+
+<h1>Admins</h1>
+
+<p>
+    <a class="btn btn-success" asp-action="AddAdminPermission">Add Permissions</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Role
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Users)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                    <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                    @Html.DisplayFor(modelItem => item.Role)
+                    </td>
+                <td>
+                    <a class="btn btn-warning" asp-action="DeleteAdmin">Remove Permissions</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
